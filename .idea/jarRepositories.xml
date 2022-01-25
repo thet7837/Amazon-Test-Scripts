@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="qe.syscolab.repo.core" />
+      <option name="name" value="qe_core" />
+      <option name="url" value="http://qcenter.cake.net:8081/repository/qe.syscolab.repo.core/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="archetype" />
+      <option name="name" value="mven custom repo" />
+      <option name="url" value="http://qe_tip:syscoqetip15@qcenter.cake.net:8081/repository/qe.syscolab.repo.core/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="mvn" />
+      <option name="url" value="https://syscobt.jfrog.io/syscobt/mvn" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="snapshots" />
+      <option name="name" value="mvn" />
+      <option name="url" value="https://syscobt.jfrog.io/syscobt/mvn" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="archetypeJFROG" />
+      <option name="name" value="mvn-sysco-qe-central" />
+      <option name="url" value="https://syscobt.jfrog.io/syscobt/mvn-sysco-qe-virtual" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="qe.sysco.repo.core" />
+      <option name="name" value="qe_core" />
+      <option name="url" value="" />
+    </remote-repository>
+  </component>
+</project>
