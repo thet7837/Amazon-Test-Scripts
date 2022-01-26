@@ -12,7 +12,7 @@ public class DataUtil {
     protected static String quantity;
     protected static FileInputStream fs;
 
-
+//Get Input Data from file
     public static void getAmazonData() throws IOException {
 
         Properties prop = new Properties();
@@ -38,7 +38,7 @@ public class DataUtil {
 
         return  size;
     }
-    public String getQuantityl() {
+    public String getQuantity() {
 
         return quantity;
     }

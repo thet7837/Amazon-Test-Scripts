@@ -38,6 +38,7 @@ public class AmazonPage {
     protected By btnCheckOut = By.xpath("//input[@data-feature-id= 'proceed-to-checkout-action']");
     protected By btnSignSecurely = By.xpath("//a[text()[normalize-space() = 'Sign in securely']]");
 
+    //Open the Amazon WebSite
     public void openAmazon() {
         if (Constant.RUN_LOCALLY) {
             DriverEnvironmentalSetupUtil.setToRunLocally();
@@ -50,11 +51,14 @@ public class AmazonPage {
 
 
     }
+    //Check the Amazon Log
     public void logoAmazonVerify(){
         boolean logoPresent =syscoLabUI.findElement(lblAmazonLogo).isDisplayed();
         Assert.assertEquals(true,logoPresent);
 
     }
+
+    //Check the Error message when input the Invalid Email Address
     public void errorEmailMessage(String email){
         //  syscoLabUI.click(btnSign);
         syscoLabUI.click(txtEmail);
@@ -65,43 +69,26 @@ public class AmazonPage {
         String ExpectError="We cannot find an account with that email address";
         Assert.assertEquals(ErrorMessage, ExpectError);
     }
+
+    //Amazon Shopping Cart Flow Verification
     public void checkoutAmazon(String category,String item,String size,String quantity) {
         syscoLabUI.click(drpDwnItemCategory);
         Select drpItem = new Select(syscoLabUI.findElement(drpDwnItemCategory));
         drpItem.selectByVisibleText(category);
         syscoLabUI.click(btnSearch);
         syscoLabUI.click(btnBabyFashion);
-        List<WebElement> listOfElements = syscoLabUI.findElements(txtBabyFashion);
-        for (WebElement element : listOfElements) {
-            if (element.getText().equalsIgnoreCase(item)) {
-                element.click();
-                break;
-            }
-        }
+        commonDropDownElementSelection(txtBabyFashion,item);
 
         if(syscoLabUI.findElements( drpDwnItemSize ).size() == 0){
-            List<WebElement> listOfSizeElements = syscoLabUI.findElements(btnItemSize);
-            for (WebElement elementSize : listOfSizeElements) {
-                if (elementSize.getText().equalsIgnoreCase(size)) {
-                    elementSize.click();
-                    break;
-                }
-            }
+            commonDropDownElementSelection(btnItemSize,size);
+
         }else {
             Select drpItemSize = new Select(syscoLabUI.findElement(drpDwnItemSize));
             drpItemSize.selectByVisibleText(size);
         }
         syscoLabUI.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         syscoLabUI.click(btnQuantity);
-        List<WebElement> listOfQuantityElements = syscoLabUI.findElements(drpDwnQuantity);
-        for (WebElement elementQuantity:listOfQuantityElements) {
-            System.out.println(elementQuantity.getText());
-            if( elementQuantity.getText().equalsIgnoreCase(quantity)){
-                elementQuantity.click();
-                break;
-
-            }
-        }
+        commonDropDownElementSelection(drpDwnQuantity,quantity);
         syscoLabUI.click(btnAddToCart);
 
         if(syscoLabUI.findElements( btnCheckOut ).size() != 0){
@@ -116,8 +103,18 @@ public class AmazonPage {
 
     }
 
+//Common Function that used to select the DRopDown Element
+    public void commonDropDownElementSelection(By drpDwnElement,String value){
+        List<WebElement> listOfQuantityElements = syscoLabUI.findElements(drpDwnElement);
+        for (WebElement elementQuantity:listOfQuantityElements) {
+            System.out.println(elementQuantity.getText());
+            if( elementQuantity.getText().equalsIgnoreCase(value)){
+                elementQuantity.click();
+                break;
 
-
+            }
+        }
+    }
 
     public void quitDriver() {
 
