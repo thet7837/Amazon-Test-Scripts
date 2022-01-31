@@ -10,10 +10,11 @@ public class DataUtil {
     protected static String item;
     protected static String size;
     protected static String quantity;
+    protected static String errormessage;
     protected static FileInputStream fs;
 
 //Get Input Data from file
-    public static void getAmazonData() throws IOException {
+    public static void getData() throws IOException {
 
         Properties prop = new Properties();
         fs = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\resources\\testdata\\AmazonTestData.properties");
@@ -24,6 +25,7 @@ public class DataUtil {
         item=prop.getProperty("item");
         size=prop.getProperty("size");
         quantity=prop.getProperty("quantity");
+        errormessage=prop.getProperty("errormessage");
     }
 
     public String getEmail() {
@@ -45,5 +47,9 @@ public class DataUtil {
     public String getItem() {
 
         return item;
+    }
+    public String getErrormessage() {
+
+        return errormessage;
     }
 }
